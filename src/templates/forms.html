@@ -1,0 +1,96 @@
+{% extends 'main.html' %} {% block body %}
+
+<style>
+body {
+  background-image: url('https://ak1.picdn.net/shutterstock/videos/15338581/thumb/10.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+<div class = 'row animated fadeInUp'>
+    <div class = 'col-md-6' style="margin-top: 80px">
+        <form action="" method = 'POST' enctype="multipart/form-data">
+                {{form.hidden_tag()}}
+                <fieldset class ="form-group">
+                    <div class="form-group">
+                        {{form.nombres.label(class="form-control-label")}} {% if
+                    form.nombres.errors %} {{ form.nombres(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nombres.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.nombres(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                    <div class="form-group">
+                        {{form.apellidos.label(class="form-control-label")}} {% if
+                    form.apellidos.errors %} {{ form.apellidos(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.apellidos.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.apellidos(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                    <div class="form-group">
+                        {{form.cedula.label(class="form-control-label")}} {% if
+                    form.cedula.errors %} {{ form.cedula(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.cedula.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.cedula(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                    <div class="form-group">
+                        {{form.edad.label(class="form-control-label")}} {% if
+                    form.edad.errors %} {{ form.edad(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.edad.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.edad(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                    <div class="form-group">
+                        {{form.sector.label(class="form-control-label")}} {% if
+                    form.sector.errors %} {{ form.sector(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sector.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.sector(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                    <div class="form-group">
+                        {{form.archivo.label(class="form-control-label")}} {% if
+                    form.archivo.errors %} {{ form.archivo(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.archivo.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.archivo(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+            </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+                </div>
+                </form>
+</div>
+</div>
+{% endblock %}

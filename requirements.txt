@@ -1,0 +1,13 @@
+click==7.1.1
+dnspython==1.16.0
+Flask==1.1.1
+Flask-WTF==0.14.3
+itsdangerous==1.1.0
+Jinja2==2.11.1
+MarkupSafe==1.1.1
+Pillow==7.0.0
+pymongo==3.10.1
+Werkzeug==1.0.0
+WTForms==2.2.1
+https://download.pytorch.org/whl/cpu/torch-1.0.0-cp36-cp36m-linux_x86_64.whl
+fastai==1.0.52

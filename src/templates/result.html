@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% block body %}
+
+<style>
+body {
+  background-image: url('https://ak3.picdn.net/shutterstock/videos/1034981873/thumb/1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+<div class = 'row' style="margin-top: 130px">
+    <div class = 'col-md-4'>
+        <div class="card border-primary mb-3" style="max-width: 40rem;">
+            <div class="card-header">Resultados: <h5>{{results['class']}}</h5></div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                      <tr class = 'table-activate' align="center">
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Probabilidad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+              {% for categoria in results['probs'] %}
+              <tr class="table-active">
+                <th scope="row">{{categoria[0]}}</th>
+                <td>{{categoria[1]}}</td>
+              </tr>
+
+              {% endfor %}
+              </tbody>
+              </table>
+              <form action="" method = 'POST' enctype="multipart/form-data">
+                {{form.hidden_tag()}}
+                <fieldset class ="form-group">
+                    <div class="form-group">
+                        {{form.nombre.label(class="form-control-label")}} {% if
+                    form.nombre.errors %} {{ form.nombre(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nombre.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.nombre(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                    <div class="form-group">
+                        {{form.comentarios.label(class="form-control-label")}} {% if
+                    form.comentarios.errors %} {{ form.comentarios(class="form-control
+                    form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.comentarios.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %} {{ form.comentarios(class="form-control form-control-lg") }} {%
+                    endif %}
+                    </div>
+                  </fieldset>
+                  <div class="form-group">
+                      <!--{{ form.submit(class="btn btn-primary btn-lg") }}-->
+                      <input name="submit" class="btn btn-primary btn-lg" id="submit" type="submit" value="Enviar comentario" style="margin-left: 66px">
+                      <a class = 'btn btn-primary btn-lg' href="{{url_for('resultados')}}" style="margin-top: 10px; margin-left: 80px; margin-right: auto">Nuevo estudio</a>
+                  </div>
+                  </form>
+            </div>
+          </div>
+    </div>
+    <div class = 'col-md-8'>
+        <div class="card border-primary ml-auto" style="max-width: 30rem;">
+            <div class="card-header">Imagen</div>
+                <div class="card-body">
+                    <img src = '{{file_name}}' width="435" height="400">
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
