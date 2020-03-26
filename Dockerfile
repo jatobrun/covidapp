@@ -12,3 +12,5 @@ RUN pip install pillow
 RUN pip install -r requirements.txt
 #pip install --no-cache-dir -r
 RUN pip install torchvision==0.1.8
+RUN pip install Flask-Bcrypt
+RUN pip install requests
