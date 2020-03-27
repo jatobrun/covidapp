@@ -59,8 +59,8 @@ def results(file_name):
     file_path = os.path.join('../static/images', file_name)
     results = model_predict(fn)
     cambios = {
-        'diagnostico': results['class'],
-        'probabilidades': [results['probs'][0], results['probs'][1]]
+        'diagnostico': str(results['class']),
+        'probabilidades': [(results['probs'][0][0], results['probs'][0][1]), (results['probs'][1][0], results['probs'][1][1])]
     }
     tabla_pacientes.update_one({'archivo': file_name}, {'$set': cambios})
     if form.validate_on_submit():
